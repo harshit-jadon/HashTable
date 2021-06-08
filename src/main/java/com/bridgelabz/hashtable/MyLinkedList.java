@@ -27,5 +27,26 @@ public class MyLinkedList <K,V>{
         }
         return null;
     }
+    public void delete(K key) {
+        if (head.key.equals(key)) {
+            head = head.next;
+        }
+        MyMapNode<K, V> temp = head;
+        if (tail.key.equals(key)) {
+            while (temp.next != tail) {
+                temp = temp.next;
+            }
+            tail = temp;
+            temp.next = null;
+        } else {
+            while (temp.next != null) {
+                if (temp.next.key.equals(key)) {
+                    MyMapNode<K, V> found = temp.next;
+                    temp.next = found.next;
+                }
+                temp = temp.next;
+            }
+        }
+    }
 }
 

@@ -10,15 +10,9 @@ public class MyMapNode<K,V> {
         this.value = value;
         next = null;
     }
-
     public K getKey() {
 
         return key;
-    }
-
-    public void setKey(K key) {
-
-        this.key = key;
     }
 
     public V getValue() {
@@ -30,12 +24,10 @@ public class MyMapNode<K,V> {
     }
 
     public MyMapNode<K, V> getNext() {
-
         return next;
     }
 
     public void setNext(MyMapNode<K, V> next) {
-
         this.next = next;
     }
 
