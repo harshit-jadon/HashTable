@@ -44,4 +44,12 @@ public class MyHashTable <K,V>{
         MyMapNode<K, V> myMapNode = myLinkedList.search(key);
         return (myMapNode == null) ? null : myMapNode.getValue();
     }
+    public void remove(K key) {
+        int index = this.getBucketIndex(key);
+        MyLinkedList<K, V> myLinkedList = this.bucket.get(index);
+        if (myLinkedList == null)
+            System.out.println("Key not Found");
+        else
+            myLinkedList.delete(key);
+    }
 }

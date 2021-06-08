@@ -39,4 +39,22 @@ public class MyHashMapTest {
         int frequency = myHashTable.get("paranoid");
         Assert.assertEquals(3,frequency);
     }
+    @Test
+    public void giveASentence_whenWordIsRemovedFromHashMap_ShouldReturnNull() {
+        String sentence = "Paranoids are not paranoid because they are paranoid but because they keep " +
+                "putting themselves into paranoid avoidable situations";
+        MyHashTable<String, Integer> myHashTable = new MyHashTable<>();
+        String[] words = sentence.toLowerCase().split(" ");
+        for (String word : words) {
+            Integer value = myHashTable.get(word);
+            if (value == null)
+                value = 1;
+            else
+                value = value + 1;
+            myHashTable.add(word, value);
+        }
+        myHashTable.remove("avoidable");
+        Integer frequency = myHashTable.get("avoidable");
+        Assert.assertNull(frequency);
+    }
 }
